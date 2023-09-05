@@ -1,9 +1,16 @@
 #!/bin/zsh
-# Code to extract the First name from the data record
-DATARECORD="last=Clifford,first=Johnny Boy,state=CA"
-COMMA1=`expr index "$DATARECORD" ','`  # 14 position of first comma
-CHOP1FIELD=${DATARECORD:$COMMA1}       #
-COMMA2=`expr index "$CHOP1FIELD" ','`
-LENGTH=`expr $COMMA2 - 6 - 1`
-FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
-echo $FIRSTNAME
+BUFFETT="Life is like a snowball. The important thing is finding wet snow and a really long hill."
+# write your code here
+ISAY="Life is like a snowball. The important thing is finding wet snow and a really long hill."
+ISAY=${ISAY[@]/snow/foot} 
+ISAY=${ISAY[@]/ snow/}
+ISAY=${ISAY[@]/finding/getting}
+WET=`expr index "$ISAY" 'w'` 
+WET=`expr $WET + 2`
+ISAY=${ISAY:1:$WET}
+
+# Test code - do not modify
+echo "Warren Buffett said:"
+echo $BUFFETT
+echo "and I say:"
+echo $ISAY
